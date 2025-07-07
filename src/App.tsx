@@ -241,7 +241,6 @@ function App() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-4">
-            <Video className="w-12 h-12 text-blue-400 mr-4" />
             <h1 className="text-4xl font-bold text-white">AI Video Scene Generator</h1>
           </div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">

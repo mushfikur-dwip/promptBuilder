@@ -92,6 +92,8 @@ export class GeminiService {
   4. Culturally appropriate for the selected language
   5. Fitting the specified mood and visual style
   6. Appropriate for Scene ${sceneNumber} in the overall narrative arc
+  7. make sure to use the correct language for the dialogue based on the voice language setting, for example, if the voice language is set to 'bengali', always return bangla dialogue and don't send any language translation.
+  8. Always cover each scene dialogue with in 8 seconds
   `;
   }
 

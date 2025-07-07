@@ -1,6 +1,7 @@
-import React from 'react';
-import { Loader2, Edit3, Trash2 } from 'lucide-react';
-import { Scene } from '../types';
+import React from "react";
+import { Loader2, Edit3, Trash2 } from "lucide-react";
+import { Scene } from "../types";
+import CopyButton from "./copy";
 
 interface SceneCardProps {
   scene: Scene;
@@ -16,6 +17,14 @@ const SceneCard: React.FC<SceneCardProps> = ({ scene, onEdit, onDelete }) => {
           Scene {scene.sceneNumber}
         </h3>
         <div className="flex gap-2">
+          <CopyButton
+            textToCopy={`Scene ${scene.sceneNumber}: ${scene.description}
+            Dialogue: ${scene.dialogue}
+            Sound Direction: ${scene.soundDirection}`}
+            className="p-2 text-gray-400 hover:text-blue-400 hover:bg-gray-700 rounded-lg transition-colors duration-200"
+            title="Copy scene details"
+          />
+
           <button
             onClick={() => onEdit(scene)}
             className="p-2 text-gray-400 hover:text-blue-400 hover:bg-gray-700 rounded-lg transition-colors duration-200"
@@ -32,7 +41,7 @@ const SceneCard: React.FC<SceneCardProps> = ({ scene, onEdit, onDelete }) => {
           </button>
         </div>
       </div>
-      
+
       {scene.isGenerating ? (
         <div className="flex items-center justify-center py-8">
           <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
@@ -41,21 +50,25 @@ const SceneCard: React.FC<SceneCardProps> = ({ scene, onEdit, onDelete }) => {
       ) : (
         <div className="space-y-4">
           <div>
-            <h4 className="text-sm font-medium text-gray-300 mb-2">Scene Description</h4>
+            <h4 className="text-sm font-medium text-gray-300 mb-2">
+              Scene Description
+            </h4>
             <p className="text-gray-100 bg-gray-900 rounded-lg p-3 leading-relaxed">
               {scene.description}
             </p>
           </div>
-          
+
           <div>
             <h4 className="text-sm font-medium text-gray-300 mb-2">Dialogue</h4>
             <p className="text-gray-100 bg-gray-900 rounded-lg p-3 leading-relaxed">
               {scene.dialogue}
             </p>
           </div>
-          
+
           <div>
-            <h4 className="text-sm font-medium text-gray-300 mb-2">Sound Direction</h4>
+            <h4 className="text-sm font-medium text-gray-300 mb-2">
+              Sound Direction
+            </h4>
             <p className="text-gray-100 bg-gray-900 rounded-lg p-3 leading-relaxed">
               {scene.soundDirection}
             </p>

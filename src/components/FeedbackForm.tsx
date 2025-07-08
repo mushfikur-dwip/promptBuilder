@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MessageSquare, Send } from "lucide-react";
-import { smtpexpressClient } from "../services/smtp";
+import { brevoClient } from "../services/smtp";
 
 const FeedbackForm: React.FC = () => {
   const [feedback, setFeedback] = useState("");
@@ -15,21 +15,21 @@ const FeedbackForm: React.FC = () => {
     setStatus("submitting");
 
       try {
-        smtpexpressClient.sendApi.sendMail({
-            subject: "New Feedback from Scene Maker",
-            message:  `Feedback: ${feedback}\nRating: ${rating}\nEmail: ${email}`,
-            sender: {
-              name: "Scene Maker Feedback",
-              email: "scene-maker-35ba47@smtpexpress.email"
-            },
-            recipients: "musfikurrahmandip@gmail.com",
-          })
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setFeedback("");
-      setEmail("");
-      setRating(5);
-      setTimeout(() => setStatus("idle"), 3000);
+        await brevoClient.sendMail({
+          subject: "New Feedback from Scene Maker",
+          message: `Feedback: ${feedback}\nRating: ${rating}/5 stars\nUser Email: ${email || 'Not provided'}`,
+          sender: {
+            name: "Scene Maker Feedback",
+            email: "noreply@scenemaker.app" // You can use your own domain email
+          },
+          recipients: "musfikurrahmandip@gmail.com",
+        });
+        
+        setStatus("success");
+        setFeedback("");
+        setEmail("");
+        setRating(5);
+        setTimeout(() => setStatus("idle"), 3000);
     
     
       } catch (error) {

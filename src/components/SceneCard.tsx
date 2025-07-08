@@ -1,7 +1,7 @@
 import React from "react";
 import { Loader2, Edit3, Trash2 } from "lucide-react";
 import { Scene } from "../types";
-import CopyButton from "./copy";
+import CopyButton from "../components/CopyButton";
 
 interface SceneCardProps {
   scene: Scene;

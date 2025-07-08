@@ -14,28 +14,37 @@ const FeedbackForm: React.FC = () => {
     e.preventDefault();
     setStatus("submitting");
 
-      try {
-        await brevoClient.sendMail({
-          subject: "New Feedback from Scene Maker",
-          message: `Feedback: ${feedback}\nRating: ${rating}/5 stars\nUser Email: ${email || 'Not provided'}`,
-          sender: {
-            name: "Scene Maker Feedback",
-            email: "noreply@scenemaker.app" // You can use your own domain email
-          },
-          recipients: "musfikurrahmandip@gmail.com",
-        });
-        
-        setStatus("success");
-        setFeedback("");
-        setEmail("");
-        setRating(5);
-        setTimeout(() => setStatus("idle"), 3000);
-    
-    
-      } catch (error) {
-      console.error("Error submitting feedback:", error);
-      setStatus("error");
+    try {
+      await brevoClient.sendMail({
+        subject: "New Feedback from Scene Maker",
+        message: `Feedback: ${feedback}\nRating: ${rating}/5 stars\nUser Email: ${
+          email || "Not provided"
+        }`,
+        sender: {
+          name: "Scene Maker Feedback",
+          email: "9014f1001@smtp-brevo.com",
+        },
+        recipients: "musfikurrahmandip@gmail.com",
+      });
+
+      setStatus("success");
+      setFeedback("");
+      setEmail("");
+      setRating(5);
       setTimeout(() => setStatus("idle"), 3000);
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+      
+      // Check if it's an API key configuration error
+      if (error instanceof Error && error.message.includes('API key not configured')) {
+        setStatus("error");
+        // You could set a specific error message for developers
+        console.error("Brevo API key not configured. Please check your .env file.");
+      } else {
+        setStatus("error");
+      }
+      
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 

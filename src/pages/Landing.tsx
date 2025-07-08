@@ -15,15 +15,13 @@ const Landing = () => {
       {/* Subtle Background Elements       {/* Footer */}
       <div className="relative py-8 border-t border-gray-700 text-center text-gray-400 text-sm bg-gray-800">
         © {new Date().getFullYear()} AI Scene Generator. Built with ❤️ by{" "}
-        <span className="text-blue-400 font-bold">
-          Ant Digitals
-        </span>
-        . Powered by Google Gemini AI.
-      </div>  <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <span className="text-blue-400 font-bold">Ant Digitals</span>. Powered
+        by Google Gemini AI.
+      </div>{" "}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gray-500/5 rounded-full blur-3xl"></div>
       </div>
-
       {/* Hero Section */}
       <div className="relative py-24 px-6 md:px-10 text-center">
         <div className="max-w-6xl mx-auto">
@@ -94,7 +92,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
       {/* Features Section */}
       <div
         id="features"
@@ -205,7 +202,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
       {/* How It Works Section */}
       <div className="relative py-24 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
@@ -270,7 +266,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
       {/* Stats Section */}
       <div className="relative py-20 px-6 md:px-10 bg-gray-800/50 border-t border-gray-700/50">
         <div className="max-w-5xl mx-auto">
@@ -308,7 +303,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
       {/* Final CTA Section */}
       <div className="relative py-24 px-6 md:px-10 text-center">
         <div className="max-w-4xl mx-auto">
@@ -329,7 +323,6 @@ const Landing = () => {
           </a>
         </div>
       </div>
-
       {/* Footer */}
       <div className="relative py-8 border-t border-gray-800/50 text-center text-gray-400 text-sm bg-gray-900/50">
         © {new Date().getFullYear()} AI Scene Generator. Built with � by{" "}

@@ -26,6 +26,7 @@ import {
   narrativeTypeOptions,
   characterConsistencyOptions,
 } from "../constants/options";
+import FeedbackForm from "../components/FeedbackForm";
 
 const initialSceneConfig: SceneConfig = {
   location: "urban_city",
@@ -584,6 +585,9 @@ function App() {
               </div>
             </div>
           )}
+
+          {/* Feedback Form */}
+          <FeedbackForm />
         </div>
       </div>
     </div>

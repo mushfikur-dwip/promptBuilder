@@ -1,7 +1,7 @@
 import React from "react";
 import { Loader2, Edit3, Trash2 } from "lucide-react";
 import { Scene } from "../types";
-import CopyButton from "../components/CopyButton";
+import CopyButton from "./CopyButton";
 
 interface SceneCardProps {
   scene: Scene;
@@ -19,10 +19,8 @@ const SceneCard: React.FC<SceneCardProps> = ({ scene, onEdit, onDelete }) => {
         <div className="flex gap-2">
           <CopyButton
             textToCopy={`Scene ${scene.sceneNumber}: ${scene.description}
-            Dialogue: ${scene.dialogue}
-            Sound Direction: ${scene.soundDirection}`}
-            className="p-2 text-gray-400 hover:text-blue-400 hover:bg-gray-700 rounded-lg transition-colors duration-200"
-            title="Copy scene details"
+Dialogue: ${scene.dialogue}
+Sound Direction: ${scene.soundDirection}`}
           />
 
           <button

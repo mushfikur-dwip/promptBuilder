@@ -90,7 +90,7 @@ export const brevoClient = {
       }
 
       const result = await response.json();
-      console.log("Email sent successfully via Brevo API:", result);
+    //   console.log("Email sent successfully via Brevo API:", result);
       return result;
     } catch (error) {
       console.error("Error sending email via Brevo API:", error);

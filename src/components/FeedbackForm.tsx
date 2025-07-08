@@ -22,7 +22,7 @@ const FeedbackForm: React.FC = () => {
         }`,
         sender: {
           name: "Scene Maker Feedback",
-          email: "9014f1001@smtp-brevo.com",
+          email: "mushfikur.dev@gmail.com",
         },
         recipients: "musfikurrahmandip@gmail.com",
       });
@@ -33,13 +33,13 @@ const FeedbackForm: React.FC = () => {
       setRating(5);
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
-      console.error("Error submitting feedback:", error);
+    //   console.error("Error submitting feedback:", error);
       
       // Check if it's an API key configuration error
       if (error instanceof Error && error.message.includes('API key not configured')) {
         setStatus("error");
         // You could set a specific error message for developers
-        console.error("Brevo API key not configured. Please check your .env file.");
+        // console.error("Brevo API key not configured. Please check your .env file.");
       } else {
         setStatus("error");
       }
